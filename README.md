@@ -1,8 +1,8 @@
 # tic-tac-toe
 A browser game to showcase understanding of prototype chain, scope + closures, and the module pattern
 
-*Planning out the modules*
-I decided to work with 3 modules:
+<b>Planning out the modules</b>
+<br>I decided to work with 3 modules:
 - Gameboard Module
 - Game Module
 - Players Module
