@@ -60,17 +60,17 @@ const game = (() => {
       let arrayComb = winningCombination[key];
       let oneIncludes = arrayComb.every(element => arrayOne.includes(element));
       let twoIncludes = arrayComb.every(element => arrayTwo.includes(element));
-      if (oneIncludes == true) {
+      if (oneIncludes() == true) {
         const winner = "Player 1 is the winner!";
         gameEnd(winner);
       }
-      else if (twoIncludes == true) {
+      else if (twoIncludes() == true) {
         const winner = "Player 2 is the winner!";
         gameEnd(winner);
       }
-      else if (oneIncludes == false && twoIncludes == false && i == 10) {
-          const winner = "It's a tie!"
-          gameEnd(winner);
+      else if (oneIncludes() == false && twoIncludes() == false && i == 10) {
+        const winner = "It's a tie!"
+        gameEnd(winner);
       }
     }
   }
