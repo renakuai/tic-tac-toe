@@ -8,10 +8,10 @@ I decided to work with 3 modules:
 - Players Module
 
 <b>Gameboard Module</b>
-I used the gameboard module to house player selections in empty arrays to keep track of taken board locations.
+<br>I used the gameboard module to house player selections in empty arrays to keep track of taken board locations.
 
 <b>Game Module</b>
-This module was used to control the flow of the game. It includes functions for:
+<br>This module was used to control the flow of the game. It includes functions for:
 - Not allowing the same space to be selected
 - Marking pieces on the board with the player's chosen character
 - Checking the status of the game during each play -- This was a little challenging in that I had first written the winning conditions out using arrays, but decided to go back and refactor because I realized I could employ an object with the winning conditions. I then utilized a loop to loop through each winning combination to see if players had selected all of the winning numbers.
@@ -20,7 +20,7 @@ This module was used to control the flow of the game. It includes functions for:
 - Restarting the game
 
 <b>Players Module</b>
-This module was used to control the flow of player selections at the start of the game. It includes functions for:
+<br>This module was used to control the flow of player selections at the start of the game. It includes functions for:
 - Selecting initial characters
 - Changing characters
 - Displaying the Start Game button once all players have selected their characters.
