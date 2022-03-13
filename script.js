@@ -46,24 +46,32 @@ const game = (() => {
   const checkGame = () => {
     let arrayOne = gameboard.playerOneBoard;
     let arrayTwo = gameboard.playerTwoBoard;
-    let comb1 = ['1','2','3'];
-    let comb2 = ['4','5','6'];
-    let comb3 = ['7', '8', '9'];
-    let comb4 = ['1', '4', '7'];
-    let comb5 = ['2', '5', '8'];
-    let comb6 = ['3', '6', '9'];
-    let comb7 = ['1', '5', '9'];
-    let comb8 = ['7', '5', '3'];
-    if (comb1.every(num => arrayOne.includes(num)) || comb2.every(num => arrayOne.includes(num)) || comb3.every(num => arrayOne.includes(num)) || comb4.every(num => arrayOne.includes(num)) || comb5.every(num => arrayOne.includes(num)) || comb6.every(num => arrayOne.includes(num)) || comb7.every(num => arrayOne.includes(num)) || comb8.every(num => arrayOne.includes(num))) {
-      const winner = "Player 1 is the winner!";
-      gameEnd(winner);
+    let winningCombination = {
+      comb1: ['1','2','3'],
+      comb2: ['4','5','6'],
+      comb3: ['7', '8', '9'],
+      comb4: ['1', '4', '7'],
+      comb5: ['2', '5', '8'],
+      comb6: ['3', '6', '9'],
+      comb7: ['1', '5', '9'],
+      comb8: ['7', '5', '3'],
     }
-    else if (comb1.every(num => arrayTwo.includes(num)) || comb2.every(num => arrayTwo.includes(num)) || comb3.every(num => arrayTwo.includes(num)) || comb4.every(num => arrayTwo.includes(num)) || comb5.every(num => arrayTwo.includes(num)) || comb6.every(num => arrayTwo.includes(num)) || comb7.every(num => arrayTwo.includes(num)) || comb8.every(num => arrayTwo.includes(num))) {
-      const winner = "Player 2 is the winner!";
-      gameEnd(winner);
-    }
-    else {
-      return;
+    for (let key in winningCombination) {
+      let arrayComb = winningCombination[key];
+      let oneIncludes = arrayComb.every(element => arrayOne.includes(element));
+      let twoIncludes = arrayComb.every(element => arrayTwo.includes(element));
+      if (oneIncludes == true) {
+        const winner = "Player 1 is the winner!";
+        gameEnd(winner);
+      }
+      else if (twoIncludes == true) {
+        const winner = "Player 2 is the winner!";
+        gameEnd(winner);
+      }
+      else if (oneIncludes == false && twoIncludes == false && i == 10) {
+          const winner = "It's a tie!"
+          gameEnd(winner);
+      }
     }
   }
   const showTurn = (round) => {
