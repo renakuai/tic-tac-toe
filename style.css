@@ -9,6 +9,7 @@ body {
   font-family: 'League Spartan', sans-serif;
   font-size: 3rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .subheader {
@@ -38,7 +39,6 @@ body {
   margin-right: auto;
   margin-left: auto;
   margin-top: 0;
-  width: 70vw;
   align-items: center;
   flex-direction: column;
   height: 100%;
@@ -49,7 +49,6 @@ body {
   border: 1px solid #000;
   display: flex; 
   flex-direction: column;
-  width: 400px;
   cursor: pointer;
 }
 
@@ -235,6 +234,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 56px;
+  text-align: center;
 }
 
 .p1-select-text,
@@ -246,4 +246,102 @@ body {
 .arrow1, .arrow2 {
   display: none;
   color: #E93B84;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .row {
+    height: 110px;
+  }
+  .cell {
+    height: 110px;
+    width: 110px;
+  }
+  .char {
+    width: 130px;
+    height: 130px;
+  }
+  .p2:hover,
+  .p1:hover {
+    font-size: 4.75rem;
+  }
+  .selected-state {
+    font-size: 4.5rem;
+  }
+  .characters {
+    font-size: 3.75rem;
+  }
+  .game-container {
+    flex-direction: row;
+  }
+  .your-turn,
+  .player1,
+  .player2 {
+    height: 120px;
+    width: 120px;
+  }
+  .subheader2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .player1-selection,
+  .player2-selection {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 625px) {
+  .row {
+    height: 90px;
+  }
+  .cell {
+    height: 90px;
+    width: 90px;
+  }
+  .p2:hover,
+  .p1:hover {
+    font-size: 3.75rem;
+  }
+  .selected-state {
+    font-size: 3.5rem;
+  }
+  .char {
+    width: 100px;
+    height: 100px;
+  }
+  .characters {
+    font-size: 2.5rem;
+  }
+  .game-container {
+    flex-direction: column;
+  }
+  .your-turn,
+  .player1,
+  .player2 {
+    height: 120px;
+    width: 120px;
+  }
+  .subheader2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .player1-selection,
+  .player2-selection {
+    font-size: 2.5rem;
+  }
+  .restartMsg {
+    font-size: 2rem;
+  }
+  .header {
+    font-size: 2.5rem;
+  }
+  .start-btn, 
+  .restartBtn {
+    font-size: 1rem;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 1.5rem;
+    width: 200px;
+  }
 }
