@@ -7,10 +7,10 @@ I decided to work with 3 modules:
 - Game Module
 - Players Module
 
-*Gameboard Module*
+<b>Gameboard Module</b>
 I used the gameboard module to house player selections in empty arrays to keep track of taken board locations.
 
-*Game Module*
+<b>Game Module</b>
 This module was used to control the flow of the game. It includes functions for:
 - Not allowing the same space to be selected
 - Marking pieces on the board with the player's chosen character
@@ -19,7 +19,7 @@ This module was used to control the flow of the game. It includes functions for:
 - Displaying whether or not a game is won or tied
 - Restarting the game
 
-*Players Module*
+<b>Players Module</b>
 This module was used to control the flow of player selections at the start of the game. It includes functions for:
 - Selecting initial characters
 - Changing characters
