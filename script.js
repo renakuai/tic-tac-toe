@@ -30,13 +30,13 @@ const game = (() => {
     selectedCell.classList.add('selected');
     let round = +countRound();
     if (round % 2 !== 0){
-      setTimeout(showTurn(round), 10000);
+      showTurn(round);
       selectedCell.classList.add('yellow');
       selectedCell.textContent = playersFactory.playerOneChar[0];
       gameboard.playerOneBoard.push(selected);
     }
     else if (round % 2 == 0){
-      setTimeout(showTurn(round), 10000);
+      showTurn(round), 10000;
       selectedCell.classList.add('blue');
       selectedCell.textContent = playersFactory.playerTwoChar[0];
       gameboard.playerTwoBoard.push(selected);
@@ -56,20 +56,54 @@ const game = (() => {
       comb7: ['1', '5', '9'],
       comb8: ['7', '5', '3'],
     }
-    for (let key in winningCombination) {
-      let arrayComb = winningCombination[key];
-      let oneIncludes = arrayComb.every(element => arrayOne.includes(element));
-      let twoIncludes = arrayComb.every(element => arrayTwo.includes(element));
-      if (oneIncludes() == true) {
+    let resultP1 = [];
+    let resultP2 = [];
+    if (i < 10) {
+      for (let key in winningCombination) {
+        let arrayComb = winningCombination[key];
+        const oneIncludes = arrayComb.every(element => {
+          return arrayOne.includes(element);
+        });
+        const twoIncludes = arrayComb.every(element => {
+          return arrayTwo.includes(element);
+        });
+        if (oneIncludes) {
+          const winner = "Player 1 is the winner!";
+          console.log('p1 wins');
+          gameEnd(winner);
+        }
+        else if (twoIncludes) {
+          const winner = "Player 2 is the winner!";
+          console.log('p2 wins');
+          gameEnd(winner);
+        }
+      }
+    }
+    else if (i == 10) {
+      for (let key in winningCombination) {
+        let arrayComb = winningCombination[key];
+        const oneIncludes = arrayComb.every(element => {
+          return arrayOne.includes(element);
+        });
+        const twoIncludes = arrayComb.every(element => {
+          return arrayTwo.includes(element);
+        });
+        resultP1.push(oneIncludes);
+        resultP2.push(twoIncludes);
+      }
+      if (resultP1.includes(true)) {
         const winner = "Player 1 is the winner!";
+        console.log(resultP1);
         gameEnd(winner);
       }
-      else if (twoIncludes() == true) {
+      else if (resultP2.includes(true)) {
         const winner = "Player 2 is the winner!";
+        console.log(resultP2);
         gameEnd(winner);
       }
-      else if (oneIncludes() == false && twoIncludes() == false && i == 10) {
-        const winner = "It's a tie!"
+      else {
+        const winner = "It's a tie!";
+        console.log('tie');
         gameEnd(winner);
       }
     }
@@ -156,7 +190,6 @@ const playersFactory = (() => {
     if (pickedId == 'one-cat' || pickedId == 'one-dog' || pickedId == 'one-monkey') {
       if (playerOneChar.length == 0) {
         playerOneSelect(picked);
-        console.log('picked');
       }
       else if (playerOneChar.length == 1) {
         let p1text = document.querySelector('.p1-select-text');
